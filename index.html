@@ -1,0 +1,61 @@
+<h1 class="fs-headline1 ow-break-word mb8 grid--cell fl1"><a class="question-hyperlink" href="https://stackoverflow.com/questions/58438365/addtype-in-htaccess-causes-either-download-or-http-error-500">AddType in htaccess causes either download or HTTP ERROR 500</a></h1>
+<div class="ml12 aside-cta grid--cell print:d-none sm:ml0 sm:mb12 sm:order-first sm:as-end">&nbsp;</div>
+<div class="grid fw-wrap pb8 mb16 bb bc-black-075">
+<div class="grid--cell ws-nowrap mr16 mb8" title="2019-10-17 18:01:16Z"><span class="fc-light mr2">Asked</span> <time datetime="2019-10-17T18:01:16">1 year, 8 months ago</time></div>
+<div class="grid--cell ws-nowrap mr16 mb8"><span class="fc-light mr2">Active</span> <a class="s-link s-link__inherit" title="2019-10-17 19:04:17Z" href="https://stackoverflow.com/questions/58438365/addtype-in-htaccess-causes-either-download-or-http-error-500?lastactivity">1 year, 8 months ago</a></div>
+<div class="grid--cell ws-nowrap mb8" title="Viewed 5,670 times"><span class="fc-light mr2">Viewed</span> 6k times</div>
+</div>
+<div id="mainbar">
+<div id="question" class="question" data-questionid="58438365" data-ownerid="3158916" data-score="1">
+<div class="js-zone-container zone-container-main mb8" style="min-height: auto; height: auto;">
+<div id="dfp-tlb" class="everyonelovesstackoverflow everyoneloves__top-leaderboard everyoneloves__leaderboard" style="min-height: auto; height: auto;" data-dfp-zone="true" data-google-query-id="CMnC-MqhuvECFZOeSwUdh9MAuA" data-clc-prefilled="true" data-clc-ready="true">
+<div id="google_ads_iframe_/248424177/stackoverflow.com/lb/question-pages_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe id="google_ads_iframe_/248424177/stackoverflow.com/lb/question-pages_0" style="border: 0px none; vertical-align: bottom;" title="3rd party ad content" src="https://ba42e02b8b76985403de734e2fb4f1c0.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" name="" width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-is-safeframe="true" data-google-container-id="1" data-load-complete="true"></iframe></div>
+</div>
+<div class="js-report-ad-button-container " style="width: 728px; height: 24px;"><button class="js-report-ad s-btn s-btn__link fs-fine mt2 float-right">Report this ad</button></div>
+</div>
+<div class="post-layout">&nbsp;</div>
+</div>
+</div>
+<div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" data-value="1">1</div>
+<div class="votecell post-layout--left">&nbsp;</div>
+<div class="postcell post-layout--right">
+<div class="s-prose js-post-body">
+<p>Currently using "AddHandler application/x-httpd-ea-php56 .php" in my htaccess file in the root of the domain since that is the only thing that works.</p>
+<p>If I try to switch to php7, the page either tries to download or it gets the HTTP ERROR 500.</p>
+<p>The following downloads the page:</p>
+<pre class="lang-php s-code-block"><code class="hljs language-php">AddHandler application/x-httpd-ea-php7 .php
+</code></pre>
+<p>The following gives me 500 error:</p>
+<pre class="lang-php s-code-block"><code class="hljs language-php">AddHandler application/x-httpd-ea-php71 .php
+</code></pre>
+<p>Downloads the page:</p>
+<pre class="lang-php s-code-block"><code class="hljs language-php">AddHandler x-httpd-php7 .php
+</code></pre>
+<p>500 error:</p>
+<pre class="lang-php s-code-block"><code class="hljs language-php">&lt;IfModule mime_module&gt;
+  AddType application/x-httpd-ea-php72 .php .php7 .phtml .htm .html
+&lt;/IfModule&gt;
+</code></pre>
+<p>500 error:</p>
+<pre class="lang-php s-code-block"><code class="hljs language-php">&lt;IfModule mime_module&gt;
+  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+&lt;/IfModule&gt;
+</code></pre>
+<p>downloads the page:</p>
+<pre class="lang-php s-code-block"><code class="hljs language-php">AddHandler application/x-httpd-php7 .php .html .htm .phtml .shtml
+</code></pre>
+<p>etc</p>
+<p>In subdirectories, I can use the following just fine:</p>
+<pre class="lang-php s-code-block"><code class="hljs language-php">&lt;IfModule mime_module&gt;
+  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+&lt;/IfModule&gt;
+</code></pre>
+<p>Try to use that in the root .htaccess file...poof no cookie.</p>
+<p>If I add AddHandler application/x-httpd-ea-php56 .php back in, it works fine again.</p>
+<p>I have also tried other some other methods I found searching around. Has anyone else had this issue? The host is Bluehost.</p>
+<p>The only other things semi-related that I have in the root htaccess file is the following, but I have tried removing it as well with no change to the results:</p>
+<pre class="lang-php s-code-block"><code class="hljs language-php">AddHandler server-parsed .html
+AddHandler server-parsed .htm
+</code></pre>
+</div>
+</div>

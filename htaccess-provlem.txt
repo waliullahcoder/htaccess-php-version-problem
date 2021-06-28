@@ -1,0 +1,53 @@
+
+
+Currently using "AddHandler application/x-httpd-ea-php56 .php" in my htaccess file in the root of the domain since that is the only thing that works.
+
+If I try to switch to php7, the page either tries to download or it gets the HTTP ERROR 500.
+
+The following downloads the page:
+
+AddHandler application/x-httpd-ea-php7 .php
+
+The following gives me 500 error:
+
+AddHandler application/x-httpd-ea-php71 .php
+
+Downloads the page:
+
+AddHandler x-httpd-php7 .php
+
+500 error:
+
+<IfModule mime_module>
+  AddType application/x-httpd-ea-php72 .php .php7 .phtml .htm .html
+</IfModule>
+
+500 error:
+
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+</IfModule>
+
+downloads the page:
+
+AddHandler application/x-httpd-php7 .php .html .htm .phtml .shtml
+
+etc
+
+In subdirectories, I can use the following just fine:
+
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+</IfModule>
+
+Try to use that in the root .htaccess file...poof no cookie.
+
+If I add AddHandler application/x-httpd-ea-php56 .php back in, it works fine again.
+
+I have also tried other some other methods I found searching around. Has anyone else had this issue? The host is Bluehost.
+
+The only other things semi-related that I have in the root htaccess file is the following, but I have tried removing it as well with no change to the results:
+
+AddHandler server-parsed .html
+AddHandler server-parsed .htm
+
